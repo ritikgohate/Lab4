@@ -6,8 +6,7 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>my-app</name>
-  <url>http://maven.apache.org</url>
-
+  <url>https://maven.apache.org</url>
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -15,17 +14,10 @@
       <version>5.13.1</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.13.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+  </dependencies>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
   <build>
     <pluginManagement>
       <plugins>
@@ -41,6 +33,7 @@
     </pluginManagement>
     <plugins>
       <plugin>
+        <!-- Build an executable JAR -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <version>3.4.2</version>
@@ -52,7 +45,8 @@
               <mainClass>com.mycompany.app.App</mainClass>
             </manifest>
           </archive>
-       >
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
@@ -67,6 +61,7 @@
               <rules>
                 <requireMavenVersion>
                   <version>[3.9.9,)</version>
+                </requireMavenVersion>
                 <requireJavaVersion>
                   <version>[17,)</version>
                 </requireJavaVersion>
